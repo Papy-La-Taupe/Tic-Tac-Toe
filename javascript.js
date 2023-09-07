@@ -22,20 +22,23 @@ const ClearSet = ()=>{
         parent.removeChild(parent.firstChild);
     };
 }
-NewSet();
+
 
 
 // broken, to fix
 
-addEventListener("click", (e)=>{
+document.addEventListener("click", (e)=>{
     console.log(e.target.className);
-    switch(e.target.className){
-        case "NewGame" :
+    switch(e.target.className) {
+        case "BoardControl NewGame":
+            console.log("create clicked");
             NewSet();
             break;
-
-        case "ResetBoard" :
+    
+        case "BoardControl ResetBoard":
+            console.log("reset clicked");
             ClearSet();
             break;
-    };
+    }
+    
 });
