@@ -15,8 +15,42 @@ body{
     align-items: center;
 }
 
+#TopsideBar{
+    position: absolute;
+    align-self: flex-start;
+    text-align: center;
+    padding-bottom: 2vw;
+    width: 100%;
+    background-color: #F486C4;
+    color: #86F4B6;
+    box-shadow: 0px 0px 3vw 3vw rgba(244, 134, 196, 1);
+}
+
+#ButtonsHolder{
+    display: flex;
+    justify-content: center;
+}
+
+.BoardControl{
+    padding:1vw 2vw;
+    margin: 1vw 3vw;
+    border-radius: 1vw;
+    background-color: #86F4B6;
+    color: #F486C4;
+    font-weight: 700;
+    font-size: 20px;
+    border:none;
+    box-shadow: 0px 0px 1vw 1vw rgba(134, 244, 182, 1);
+}
+
+.BoardControl:hover{
+    box-shadow: inset 0px 0px 1vw 1vw rgba(134, 244, 182, 1);
+}
+
+
 #GameBoard{
     display: grid;
+    margin-top:10vw;
     width:fit-content;
     height: fit-content;
     grid-template: repeat(3,7vw) / repeat(3, 7vw);
@@ -28,6 +62,6 @@ body{
 }
 
 .GameCell{
-    background-color: greenyellow;
+    background-color: #F486C4;
     border-radius: 1.5vw;
 }
