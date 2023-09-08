@@ -76,7 +76,7 @@ document.addEventListener("click", (e)=>{
         case "C1 GameCell":
         case "C2 GameCell":
         case "C3 GameCell":
-            playerToken === "Heart" ? e.target.style.backgroundImage = "url('./images/ticHeart.png')":null;
+            playerToken === "Heart" ? e.target.style.backgroundImage = "url('./images/ticHeart.png')":e.target.style.backgroundImage = "url('./images/TicCross.png')";
             break;
 
     }
