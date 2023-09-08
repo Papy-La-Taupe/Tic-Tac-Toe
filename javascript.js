@@ -25,7 +25,7 @@ const ClearSet = ()=>{
 
 
 
-// broken, to fix
+
 
 document.addEventListener("click", (e)=>{
     console.log(e.target.className);

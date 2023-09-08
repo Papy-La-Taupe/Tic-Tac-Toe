@@ -65,3 +65,24 @@ body{
     background-color: #F486C4;
     border-radius: 1.5vw;
 }
+
+#PlayerPick, #ComputerPick{
+    padding:1vw 2vw;
+    margin: 1vw 3vw;
+    border-radius: 1vw;
+    background-color: #F486C4;
+    color: #86F4B6;
+    font-weight: 700;
+    font-size: 20px;
+    border:none;
+    box-shadow: 0px 0px 1vw 1vw rgba(244, 134, 196, 1);
+}
+
+#PlayerPick:hover{
+    box-shadow: inset 0px 0px 1vw 1vw rgba(244, 134, 196, 1);
+}
+
+.HeartPick, .CrossPick, .HeartComputer, .CrossComputer{
+    display:none;
+}
+
