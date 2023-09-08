@@ -25,6 +25,7 @@ const ClearSet = ()=>{
 
     //Because some global variable can't hurt heh ? The way I see my code it's way simpler this way...well, cleaner at least.
 let playerToken ="Heart";
+let counter ="Odd";
 
 
 
@@ -76,7 +77,26 @@ document.addEventListener("click", (e)=>{
         case "C1 GameCell":
         case "C2 GameCell":
         case "C3 GameCell":
-            playerToken === "Heart" ? e.target.style.backgroundImage = "url('./images/ticHeart.png')":e.target.style.backgroundImage = "url('./images/TicCross.png')";
+            if(playerToken === "Heart") {
+                if(counter === "Odd"){
+                    e.target.style.backgroundImage = "url('./images/ticHeart.png')";
+                    counter = "Even";
+                } 
+                else{
+                    e.target.style.backgroundImage = "url('./images/TicCross.png')";
+                    counter = "Odd";
+                };
+            }
+            else if(playerToken === "Cross") {
+                if(counter === "Odd"){
+                    e.target.style.backgroundImage = "url('./images/TicCross.png')";
+                    counter = "Even";
+                } 
+                else{
+                    e.target.style.backgroundImage = "url('./images/ticHeart.png')";
+                    counter = "Odd";
+                };
+            };
             break;
 
     }
