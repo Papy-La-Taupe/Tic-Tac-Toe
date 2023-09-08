@@ -64,6 +64,7 @@ body{
 .GameCell{
     background-color: #F486C4;
     border-radius: 1.5vw;
+    background-size: cover;
 }
 
 #PlayerPickBox, #ComputerPickBox{

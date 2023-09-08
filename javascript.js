@@ -63,6 +63,21 @@ document.addEventListener("click", (e)=>{
             heartPick.className === "HeartPick Activated" ? playerToken = "Heart" : playerToken = "Cross";
             console.log(playerToken);
             break;
-    }
     
+    
+            //RulesOfPlay
+
+        case "A1 GameCell":
+        case "A2 GameCell":
+        case "A3 GameCell":
+        case "B1 GameCell":
+        case "B2 GameCell":
+        case "B3 GameCell":
+        case "C1 GameCell":
+        case "C2 GameCell":
+        case "C3 GameCell":
+            playerToken === "Heart" ? e.target.style.backgroundImage = "url('./images/ticHeart.png')":null;
+            break;
+
+    }
 });
