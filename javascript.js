@@ -23,13 +23,19 @@ const ClearSet = ()=>{
     };
 }
 
-
+    //Because some global variable can't hurt heh ? The way I see my code it's way simpler this way...well, cleaner at least.
+let playerToken ="Heart";
 
 
 
 document.addEventListener("click", (e)=>{
+
     console.log(e.target.className);
+
     switch(e.target.className) {
+
+            //BoardSetting
+
         case "BoardControl NewGame":
             console.log("create clicked");
             NewSet();
@@ -38,6 +44,24 @@ document.addEventListener("click", (e)=>{
         case "BoardControl ResetBoard":
             console.log("reset clicked");
             ClearSet();
+            break;
+
+            //TokenPicking
+
+        case "PlayerPick":
+            console.log("token clicked");
+            const heartPick = document.querySelector(".HeartPick");
+            const crossPick = document.querySelector(".CrossPick");
+            const heartComputer = document.querySelector(".HeartComputer");
+            const crossComputer = document.querySelector(".CrossComputer");
+
+            heartPick.classList.toggle("Activated");
+            crossComputer.classList.toggle("Activated");
+            crossPick.classList.toggle("Activated");
+            heartComputer.classList.toggle("Activated");
+            console.log(heartPick);
+            heartPick.className === "HeartPick Activated" ? playerToken = "Heart" : playerToken = "Cross";
+            console.log(playerToken);
             break;
     }
     
