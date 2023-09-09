@@ -6,6 +6,7 @@ const NewSet = ()=>{
     counter ="Odd";
     playerScore = "";
     aiScore = "";
+    gameBlocker = false;
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     };
@@ -24,6 +25,7 @@ const ClearSet = ()=>{
     counter ="Odd";
     playerScore = "";
     aiScore = "";
+    gameBlocker = false;
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     };
@@ -37,16 +39,17 @@ const Score =(e, counter) => {
 };
 
 const result = (playerScore, aiScore) => {
+    if(gameBlocker)return;
     const rows = /^(?=.*A1)(?=.*A2)(?=.*A3)|^(?=.*B1)(?=.*B2)(?=.*B3)|^(?=.*C1)(?=.*C2)(?=.*C3)/;
     const columns = /^(?=.*A1)(?=.*B1)(?=.*C1)|^(?=.*A2)(?=.*B2)(?=.*C2)|^(?=.*A3)(?=.*B3)(?=.*C3)/;
     const diags = /^(?=.*A1)(?=.*B2)(?=.*C3)|^(?=.*A3)(?=.*B2)(?=.*C1)/;
 
     if (rows.test(playerScore) || columns.test(playerScore) || diags.test(playerScore)) {
-        console.log("Congratulation, Player Wins!");
+        console.log("Congratulation, Player Wins!"); gameBlocker=true;
     }
 
     if (rows.test(aiScore) || columns.test(aiScore) || diags.test(aiScore)) {
-        console.log("Congratulation, AI Wins!");
+        console.log("Congratulation, AI Wins!"); gameBlocker=true;
     }
 };
 
@@ -56,6 +59,7 @@ let playerToken ="Heart";
 let counter ="Odd";
 let playerScore = "";
 let aiScore = "";
+let gameBlocker = false;
 
 
 
@@ -107,7 +111,7 @@ document.addEventListener("click", (e)=>{
         case "C1 GameCell":
         case "C2 GameCell":
         case "C3 GameCell":
-            
+            if(gameBlocker)break;
             if(playerToken === "Heart") {
                 if(counter === "Odd"){
                     e.target.style.backgroundImage = "url('./images/ticHeart.png')";
