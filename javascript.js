@@ -3,6 +3,8 @@
 const NewSet = ()=>{
     const GameBoard = ["A1","A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
     const parent = document.querySelector("#GameBoard");
+    const winning = document.querySelector(".WinningBar");
+    if(playerScore){winning.classList.toggle("Activated");};
     counter ="Odd";
     playerScore = "";
     aiScore = "";
@@ -10,6 +12,7 @@ const NewSet = ()=>{
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     };
+
     for(let i = 0; i < GameBoard.length; i++){
         let newContainer = document.createElement("div");
         newContainer.classList.add(`${GameBoard[i]}`);
@@ -17,11 +20,14 @@ const NewSet = ()=>{
 
         parent.appendChild(newContainer);
     };
+    
 };
 
 const ClearSet = ()=>{
     const GameBoard = ["A1","A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
     const parent = document.querySelector("#GameBoard");
+    const winning = document.querySelector(".WinningBar");
+    if(playerScore){winning.classList.toggle("Activated");};
     counter ="Odd";
     playerScore = "";
     aiScore = "";
@@ -29,6 +35,7 @@ const ClearSet = ()=>{
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     };
+    
 }
 
 const Score =(e, counter) => {
@@ -45,11 +52,24 @@ const result = (playerScore, aiScore) => {
     const diags = /^(?=.*A1)(?=.*B2)(?=.*C3)|^(?=.*A3)(?=.*B2)(?=.*C1)/;
 
     if (rows.test(playerScore) || columns.test(playerScore) || diags.test(playerScore)) {
-        console.log("Congratulation, Player Wins!"); gameBlocker=true;
+        const winning = document.querySelector(".WinningBar"); 
+        
+        const winner = document.querySelector(".Winner");
+        winner.textContent ="The Player";
+        winning.classList.toggle("Activated");
+        console.log(winning.classList);
+        
+
+        gameBlocker=true;
     }
 
     if (rows.test(aiScore) || columns.test(aiScore) || diags.test(aiScore)) {
-        console.log("Congratulation, AI Wins!"); gameBlocker=true;
+        const winning = document.querySelector(".WinningBar"); 
+        
+        const winner = document.querySelector(".Winner");
+        winner.textContent ="The AI";
+        winning.classList.toggle("Activated");
+        gameBlocker=true;
     }
 };
 

@@ -15,6 +15,19 @@ body{
     align-items: center;
 }
 
+.WinningBar{
+    display:none;
+    position:absolute;
+    z-index:1;
+    width:100vw;
+    height: 15vw;
+    margin:auto 0;
+    background-color: rgba(134, 244, 182, 1);
+    color: #F486C4;
+    text-align: center;
+    padding: 3vw 0;
+}
+
 #TopsideBar{
     position: absolute;
     align-self: flex-start;
@@ -102,3 +115,4 @@ body{
 .Activated{
     display:block;
 }
+
