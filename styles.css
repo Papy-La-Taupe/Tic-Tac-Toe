@@ -62,7 +62,7 @@ body{
 }
 
 .GameCell{
-    background-color: #F486C4;
+    background-color: white;
     border-radius: 1.5vw;
     background-size: cover;
 }

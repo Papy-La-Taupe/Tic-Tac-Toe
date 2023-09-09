@@ -3,6 +3,9 @@
 const NewSet = ()=>{
     const GameBoard = ["A1","A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
     const parent = document.querySelector("#GameBoard");
+    counter ="Odd";
+    playerScore = "";
+    aiScore = "";
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     };
@@ -18,14 +21,41 @@ const NewSet = ()=>{
 const ClearSet = ()=>{
     const GameBoard = ["A1","A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
     const parent = document.querySelector("#GameBoard");
+    counter ="Odd";
+    playerScore = "";
+    aiScore = "";
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     };
 }
 
+const Score =(e, counter) => {
+    if(e){counter === "Odd" ? playerScore += e.target.className.match(/[A-C][1-3]/)?.[0] : aiScore += e.target.className.match(/[A-C][1-3]/)?.[0];}
+    console.log(playerScore, aiScore);
+    return{playerScore, aiScore};
+    
+};
+
+const result = (playerScore, aiScore) => {
+    const rows = /^(?=.*A1)(?=.*A2)(?=.*A3)|^(?=.*B1)(?=.*B2)(?=.*B3)|^(?=.*C1)(?=.*C2)(?=.*C3)/;
+    const columns = /^(?=.*A1)(?=.*B1)(?=.*C1)|^(?=.*A2)(?=.*B2)(?=.*C2)|^(?=.*A3)(?=.*B3)(?=.*C3)/;
+    const diags = /^(?=.*A1)(?=.*B2)(?=.*C3)|^(?=.*A3)(?=.*B2)(?=.*C1)/;
+
+    if (rows.test(playerScore) || columns.test(playerScore) || diags.test(playerScore)) {
+        console.log("Congratulation, Player Wins!");
+    }
+
+    if (rows.test(aiScore) || columns.test(aiScore) || diags.test(aiScore)) {
+        console.log("Congratulation, AI Wins!");
+    }
+};
+
+
     //Because some global variable can't hurt heh ? The way I see my code it's way simpler this way...well, cleaner at least.
 let playerToken ="Heart";
 let counter ="Odd";
+let playerScore = "";
+let aiScore = "";
 
 
 
@@ -77,27 +107,45 @@ document.addEventListener("click", (e)=>{
         case "C1 GameCell":
         case "C2 GameCell":
         case "C3 GameCell":
+            
             if(playerToken === "Heart") {
                 if(counter === "Odd"){
                     e.target.style.backgroundImage = "url('./images/ticHeart.png')";
+                    Score(e, counter);
                     counter = "Even";
                 } 
                 else{
                     e.target.style.backgroundImage = "url('./images/TicCross.png')";
+                    Score(e, counter);
                     counter = "Odd";
                 };
             }
             else if(playerToken === "Cross") {
                 if(counter === "Odd"){
                     e.target.style.backgroundImage = "url('./images/TicCross.png')";
+                    Score(e, counter);
                     counter = "Even";
                 } 
                 else{
                     e.target.style.backgroundImage = "url('./images/ticHeart.png')";
+                    Score(e, counter);
                     counter = "Odd";
                 };
             };
+
+
+            
+                
+
+
             break;
 
+            
+
+
     }
+        //Score calculation (no score keeping for this project (for now at least) : while it would be fairly easy, I rather advance in my learning.)
+
+    result(playerScore, aiScore);
+
 });
