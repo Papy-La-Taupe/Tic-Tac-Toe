@@ -55,7 +55,7 @@ const result = (playerScore, aiScore) => {
         const winning = document.querySelector(".WinningBar"); 
         
         const winner = document.querySelector(".Winner");
-        winner.textContent ="The Player";
+        winner.textContent ="Player One";
         winning.classList.toggle("Activated");
         console.log(winning.classList);
         
@@ -67,7 +67,7 @@ const result = (playerScore, aiScore) => {
         const winning = document.querySelector(".WinningBar"); 
         
         const winner = document.querySelector(".Winner");
-        winner.textContent ="The AI";
+        winner.textContent ="Player Two";
         winning.classList.toggle("Activated");
         gameBlocker=true;
     }
